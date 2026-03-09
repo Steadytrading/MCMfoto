@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MCM Daily Image Generator Pro</title>
+  <title>MCM Daily Image Generator V3</title>
   <style>
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #07101b; color: #eef2fb; }
     .wrap { max-width: 760px; margin: 0 auto; padding: 32px 18px; }
@@ -20,15 +20,15 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>Daily Image Generator Pro</h1>
-      <p>Trading-proffsig version för Telegram och Facebook. 5 design-teman slumpas automatiskt, plus anpassad text för vinst eller förlustdagar.</p>
+      <h1>Daily Image Generator V3</h1>
+      <p>Logo-baserad premiumdesign för Telegram och Facebook. Resultatbilden använder MCM-loggan, låg-risk badge och anpassad text för vinst- eller förlustdagar.</p>
       {% if error %}<div class="error">{{ error }}</div>{% endif %}
       <form method="post" action="/generate-image">
         <label for="profit">Dagens profit (%)</label>
         <input id="profit" name="profit" placeholder="Ex: 4.12 eller -1.20" inputmode="decimal" />
         <button type="submit">Generate image</button>
       </form>
-      <div class="hint">Positiva dagar får gold badge. Negativa dagar får röd loss badge. Candlestick-bakgrund och tema slumpas varje gång.</div>
+      <div class="hint">Skriv plus eller minus. Layouten använder er logo, premium färgtema och brandad footer.</div>
     </div>
   </div>
 </body>
