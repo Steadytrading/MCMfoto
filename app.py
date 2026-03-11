@@ -10,18 +10,18 @@ SITE = "mcmtrading.netlify.app"
 LOGO_PATH = os.path.join(os.path.dirname(__file__), "static", "mcm_logo.png")
 
 POSITIVE_TEXTS = [
-    "Today we closed the day at {profit}% profit. Our strategy stays focused on low risk, controlled entries, and safe trade management.",
-    "Today we secured {profit}% profit through disciplined execution, low risk exposure, and patient setups.",
+    "Yesterday we closed the day at {profit}% profit. Our strategy stays focused on low risk, controlled entries, and safe trade management.",
+    "Yesterday we secured {profit}% profit through disciplined execution, low risk exposure, and patient setups.",
     "Another strong day at {profit}% profit. We continue to prioritize capital protection and safe, selective trades.",
-    "Today's result came in at {profit}% profit. Our approach remains the same: low risk, consistency, and control.",
+    "Yesterday´s result came in at {profit}% profit. Our approach remains the same: low risk, consistency, and control.",
     "We finished the day with {profit}% profit. Smart capital management and low-risk setups stay at the core of our strategy."
 ]
 
 NEGATIVE_TEXTS = [
-    "Today we closed with a small loss of {profit}%. Protecting capital always comes first in our strategy.",
-    "Today's result was {profit}%. We kept the loss controlled to preserve capital for stronger setups ahead.",
+    "Yesterday we closed with a small loss of {profit}%. Protecting capital always comes first in our strategy.",
+    "Yesterday's result was {profit}%. We kept the loss controlled to preserve capital for stronger setups ahead.",
     "We ended the day at {profit}%. Some sessions are about protecting the account and staying disciplined.",
-    "Today came in at {profit}%. The loss was small and controlled because risk management always comes first.",
+    "Yesterday came in at {profit}%. The loss was small and controlled because risk management always comes first.",
     "We finished at {profit}%. Even on red days, our focus stays on low risk and protecting assets."
 ]
 
@@ -129,7 +129,7 @@ def generate_image(profit_input):
     add_logo_background(img)
     draw_subtle_chart(draw, is_negative, theme["gold"])
 
-    result_label = "TODAY'S RESULT"
+    result_label = "YESTERDAY'S RESULT"
     bbox = draw.textbbox((0, 0), result_label, font=FONT_RESULT)
     draw.text(((WIDTH - (bbox[2]-bbox[0]))/2, 420), result_label, font=FONT_RESULT, fill=(240, 243, 247))
 
