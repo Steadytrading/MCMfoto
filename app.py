@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
-LOGO_PATH = BASE_DIR / 'static' / 'pcm_logo.png'
+LOGO_PATH = BASE_DIR / 'static' / 'mcm_logo.png'
 
 WIDTH = 1080
 HEIGHT = 1350
@@ -84,7 +84,7 @@ HTML = '''
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>PCM Trading Generator V3</h1>
+      <h1>MCM Trading Generator V3</h1>
       <p>Standalone daily, weekly and monthly posters in 1080x1350. The image is returned as a file download.</p>
       <p class="hint">No strategy label is shown in the artwork. Use the same seed if you want deterministic random text and badges.</p>
     </div>
@@ -95,7 +95,7 @@ HTML = '''
         <label>Result (%)</label>
         <input type="text" name="result" value="3.74" required>
         <label>Brand</label>
-        <input type="text" name="brand" value="PCM Trading">
+        <input type="text" name="brand" value="MCM Trading">
         <label>Seed (optional)</label>
         <input type="text" name="seed" placeholder="2026-03-09">
         <button type="submit">Download daily PNG</button>
@@ -116,7 +116,7 @@ HTML = '''
           </div>
         </div>
         <label>Brand</label>
-        <input type="text" name="brand" value="PCM Trading">
+        <input type="text" name="brand" value="MCM Trading">
         <label>Seed (optional)</label>
         <input type="text" name="seed" placeholder="2026-week-10">
         <button type="submit">Download weekly PNG</button>
@@ -137,7 +137,7 @@ HTML = '''
           </div>
         </div>
         <label>Brand</label>
-        <input type="text" name="brand" value="PCM Trading">
+        <input type="text" name="brand" value="MCM Trading">
         <label>Seed (optional)</label>
         <input type="text" name="seed" placeholder="2026-03">
         <button type="submit">Download monthly PNG</button>
@@ -424,39 +424,39 @@ def health():
 @app.route('/generate')
 def generate():
     result_value = request.args.get('result', '0')
-    brand = request.args.get('brand', 'PCM Trading').strip() or 'PCM Trading'
+    brand = request.args.get('brand', 'MCM Trading').strip() or 'MCM Trading'
     seed = request.args.get('seed', '').strip() or None
     try:
         image_io = generate_daily(result_value, brand, seed)
     except Exception as exc:
         return Response(f'Invalid input: {exc}', status=400, mimetype='text/plain')
-    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('pcm_daily', result_value))
+    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('mcm_daily', result_value))
 
 
 @app.route('/generate/weekly')
 def generate_weekly_route():
     result_value = request.args.get('result', '0')
-    brand = request.args.get('brand', 'PCM Trading').strip() or 'PCM Trading'
+    brand = request.args.get('brand', 'MCM Trading').strip() or 'MCM Trading'
     period_label = request.args.get('period_label', 'Weekly Performance').strip() or 'Weekly Performance'
     seed = request.args.get('seed', '').strip() or None
     try:
         image_io = generate_weekly(result_value, brand, period_label, seed)
     except Exception as exc:
         return Response(f'Invalid input: {exc}', status=400, mimetype='text/plain')
-    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('pcm_weekly', result_value))
+    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('mcm_weekly', result_value))
 
 
 @app.route('/generate/monthly')
 def generate_monthly_route():
     result_value = request.args.get('result', '0')
-    brand = request.args.get('brand', 'PCM Trading').strip() or 'PCM Trading'
+    brand = request.args.get('brand', 'MCM Trading').strip() or 'MCM Trading'
     period_label = request.args.get('period_label', 'Monthly Performance').strip() or 'Monthly Performance'
     seed = request.args.get('seed', '').strip() or None
     try:
         image_io = generate_monthly(result_value, brand, period_label, seed)
     except Exception as exc:
         return Response(f'Invalid input: {exc}', status=400, mimetype='text/plain')
-    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('pcm_monthly', result_value))
+    return send_file(image_io, mimetype='image/png', as_attachment=True, download_name=make_filename('mcm_monthly', result_value))
 
 
 if __name__ == '__main__':
